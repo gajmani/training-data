@@ -7,3 +7,15 @@ browserify -t [ babelify --presets [ react ] ] main.js -o bundle.js
 If you don't have browserify, install it by 
 
 npm install -g browserify // will install it globally
+
+
+Offline Transform
+
+First install the Babel command-line tools (requires npm):
+
+npm install --global babel-cli
+npm install babel-preset-react
+
+Then, translate your src/helloworld.js file to plain JavaScript:
+
+babel --presets react main.js --watch --out-dir build // --watch will rebuild whenever main.js is changed
