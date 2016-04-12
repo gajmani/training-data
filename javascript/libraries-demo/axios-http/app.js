@@ -13,7 +13,7 @@ Promise.config({
     cancellation: true
 });
 
-// hold every request
+// holds every request
 var _axiosAjaxRequests = [];
 
 // axios call - sending the request
