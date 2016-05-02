@@ -61,26 +61,18 @@ function initGridView(rootNode) {
         cellRenderer: "checkbox",
         width: 31,
         resizable: false
-      });
+      });    
 
-    // Add the dummy column.
-    columnDefs.push({
-      field: "DummyStretchColumn",
-      label: "",
-      width: 100
-    });
-
-    columnDefs.forEach(function (column) {
-      // debugger;
+    columnDefs.forEach(function (column) {      
       columns.push({
         field: column.field,
         headerName: column.label,
         width: column.width,
         checkboxSelection: multiSelect && column.field === "CheckColumn" ? true : false,
-        suppressSorting: column.field === "CheckColumn" || column.field === "DummyStretchColumn" ? true : false,
-        suppressMenu: column.field === "CheckColumn" || column.field === "DummyStretchColumn" ? true : false,
+        suppressSorting: column.field === "CheckColumn" ? true : false,
+        suppressMenu: column.field === "CheckColumn" ? true : false,
         cellClass: column.className,
-        suppressSizeToFit: column.field === "DummyStretchColumn" ? false : true,
+        suppressSizeToFit: true,
         unSortIcon: false,
         headerCellRenderer: function (params) {
           var gridApi = params.api;
@@ -276,7 +268,7 @@ function initGridView(rootNode) {
       var labels = [];
       var funcs = {};
       fields.forEach(function (field) {
-        if (field.field !== "CheckColumn" && field.field !== "DummyStretchColumn" && field.field !== "action" && field.field !== "") {
+        if (field.field !== "CheckColumn" && field.field !== "action" && field.field !== "") {
           var label = field.headerName;
           if (label == null)
             label = field.field;
@@ -293,7 +285,7 @@ function initGridView(rootNode) {
       rows.forEach(function (row, index) {
         var values = [];
         fields.forEach(function (field) {
-          if (field.field !== "CheckColumn" && field.field !== "DummyStretchColumn" && field.field !== "action" && field.field !== "") {
+          if (field.field !== "CheckColumn" && field.field !== "action" && field.field !== "") {
             var value = row[field.field];
             if (funcs[field.field])
               value = funcs[field.field](value);

@@ -2,6 +2,9 @@ input[type="checkbox"] {
   width: 18px;
   height: 18px;
 }
+.ag-body-container{
+	width:100% !important;
+}
 .gridHeaderCheckBox {
   margin-left: 3px !important;
 }
